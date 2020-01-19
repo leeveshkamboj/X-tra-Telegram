@@ -25,7 +25,8 @@ from userbot.utils import register
 @register(outgoing=True, pattern="^.imdb")
 # @borg.on(admin_cmd("imdb ?(.*)"))
 async def imdb(e):
-    try:
+    if True:
+#     try:
         movie_name = e.pattern_match.group(1)
         remove_space = movie_name.split(' ')
         final_name = '+'.join(remove_space)
@@ -102,6 +103,6 @@ async def imdb(e):
                      '\n<b>Story Line : </b>' + story_line,
                      link_preview=True,
                      parse_mode='HTML')
-    except IndexError:
-        await e.edit("Plox enter **Valid movie name** kthx")
+#     except IndexError:
+#         await e.edit("Plox enter **Valid movie name** kthx")
 
