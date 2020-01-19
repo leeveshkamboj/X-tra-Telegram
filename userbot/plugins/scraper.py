@@ -21,9 +21,12 @@ from telethon import events as e
 from io import BytesIO
 from PIL import Image
 from userbot.utils import register
+from userbot.utils import admin_cmd
 
-@register(outgoing=True, pattern="^.imdb")
+# @register(outgoing=True, pattern="^.imdb")
 # @borg.on(admin_cmd("imdb ?(.*)"))
+
+@borg.on(admin_cmd("imdb (.*)"))
 async def imdb(e):
     if True:
 #     try:
