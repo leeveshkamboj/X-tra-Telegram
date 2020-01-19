@@ -20,9 +20,10 @@ from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon import events as e
 from io import BytesIO
 from PIL import Image
+from userbot.utils import register
 
-
-@borg.on(admin_cmd("imdb ?(.*)"))
+@register(outgoing=True, pattern="^.imdb")
+# @borg.on(admin_cmd("imdb ?(.*)"))
 async def imdb(e):
     try:
         movie_name = e.pattern_match.group(1)
