@@ -17,13 +17,12 @@ from wikipedia.exceptions import DisambiguationError, PageError
 from urbandict import define
 from requests import get
 from telethon.errors.rpcerrorlist import YouBlockedUserError
-from telethon import events
+from telethon import events as e
 from io import BytesIO
 from PIL import Image
 
 
 @borg.on(admin_cmd("imdb ?(.*)"))
-e=event
 async def imdb(e):
     try:
         movie_name = e.pattern_match.group(1)
