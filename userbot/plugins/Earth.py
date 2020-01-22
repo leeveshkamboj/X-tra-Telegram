@@ -16,3 +16,4 @@ async def _(event):
 		await event.edit("".join(deq))
 		deq.rotate(1)
     
+
