@@ -1174,7 +1174,17 @@ async def alol(e):
         t = "L😂L"
         for j in range(15):
             t = "L🤣L" if j%2==0 else "L😂L"
-            await e.edit(t)			  
+            await e.edit(t)
+			  
+@register(outgoing=True, pattern="^.p$")
+async def p(e):
+    if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
+        await e.edit("Participate is giveaways.")	
+			  
+@register(outgoing=True, pattern="^.w$")
+async def w(e):
+    if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
+        await e.edit("Wait for results.")			  
 			  
 @register(outgoing=True, pattern="^.nice$")
 async def nice(e):
