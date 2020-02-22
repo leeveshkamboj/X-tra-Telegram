@@ -72,7 +72,37 @@ if Var.PRIVATE_GROUP_ID is not None:
             if pmpermit_sql.is_approved(chat.id):
                 pmpermit_sql.disapprove(chat.id)
                 await event.edit("Disapproved [{}](tg://user?id={})".format(firstname, chat.id))
-                
+  
+  if True:
+    @command(pattern="^.listapproved")
+    async def approve_p_m(event):
+        if event.fwd_from:
+            return
+        approved_users = pmpermit_sql.get_all_approved()
+        APPROVED_PMs = "Current Approved PMs\n"
+        if len(approved_users) > 0:
+            for a_user in approved_users:
+                if a_user.reason:
+                    APPROVED_PMs += f"👉 [{a_user.chat_id}](tg://user?id={a_user.chat_id}) for {a_user.reason}\n"
+                else:
+                    APPROVED_PMs += f"👉 [{a_user.chat_id}](tg://user?id={a_user.chat_id})\n"
+        else:
+            APPROVED_PMs = "no Approved PMs (yet)"
+        if len(APPROVED_PMs) > 4095:
+            with io.BytesIO(str.encode(APPROVED_PMs)) as out_file:
+                out_file.name = "approved.pms.text"
+                await event.client.send_file(
+                    event.chat_id,
+                    out_file,
+                    force_document=True,
+                    allow_cache=False,
+                    caption="Current Approved PMs",
+                    reply_to=event
+                )
+                await event.delete()
+        else:
+            await event.edit(APPROVED_PMs)
+            
     @bot.on(events.NewMessage(incoming=True))
     async def on_new_private_message(event):
         if event.from_id == bot.uid:
