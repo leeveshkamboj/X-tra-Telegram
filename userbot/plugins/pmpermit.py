@@ -73,7 +73,7 @@ if Var.PRIVATE_GROUP_ID is not None:
                 pmpermit_sql.disapprove(chat.id)
                 await event.edit("Disapproved [{}](tg://user?id={})".format(firstname, chat.id))
   
-  if True:
+ 
     @command(pattern="^.listapproved")
     async def approve_p_m(event):
         if event.fwd_from:
