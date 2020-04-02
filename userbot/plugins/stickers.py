@@ -46,8 +46,15 @@ async def _(event):
 
     me = borg.me
     userid = event.from_id
-    packname = f"@A_Dark_Princ3 ki gufa me {userid}"
-    packshortname = f"Anubis_ki_gufa_me_{userid}"  # format: Uni_Borg_userid
+    if userid == 630654925:        
+        packname = "@HeisenbergTheDanger's sticker Pack"
+        packshortname = "Sticker_pack_of_Walter_White"  # format: Uni_Borg_userid
+    elif userid == 998529337:
+        packname = "@Destroyer_op's sticker Pack"
+        packshortname = "Sticker_pack_of_Mr_Sensitive"  # format: Uni_Borg_userid
+    else:
+        packname = f"{userid}'s 2nd @DraXCommunity Pack"
+        packshortname = f"DraXCommunity_{userid}_2nd"  # format: Uni_Borg_userid
 
     is_a_s = is_it_animated_sticker(reply_message)
     file_ext_ns_ion = "@UniBorg_Sticker.png"
