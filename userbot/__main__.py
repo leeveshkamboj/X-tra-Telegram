@@ -31,7 +31,7 @@ else:
             api_hash=Var.API_HASH
         ).start(bot_token=Var.TG_BOT_TOKEN_BF_HER)
         print("Initialisation finished with no errors")
-        print("Starting Userbot ", TG_BOT_USER_NAME_BF_HER)
+        print("Starting Userbot ", Var.TG_BOT_USER_NAME_BF_HER)
         bot.loop.run_until_complete(add_bot(Var.TG_BOT_USER_NAME_BF_HER))
         print("Startup Completed")
     else:
