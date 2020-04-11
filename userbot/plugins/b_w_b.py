@@ -5,6 +5,9 @@ from bwb import bwb
 from userbot import bot
 import asyncio
 
+print(bot.me)
+# telethon.utils.get_peer_id(bot.me)
+
 # bwb = bwb.bwb(borg.uid)
 
 bwb = bwb.bwb(bot.uid)
