@@ -2,9 +2,12 @@ import subprocess
 subprocess.call("pip install bwb".split(" "), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 from telethon.events import NewMessage
 from bwb import bwb
+from userbot import bot
 import asyncio
 
-bwb = bwb.bwb(borg.uid)
+# bwb = bwb.bwb(borg.uid)
+
+bwb = bwb.bwb(bot.uid)
 wrap_users = {
     't': 79316791,   # Tanner
     'j': 172033414,  # Jason
